@@ -1,4 +1,4 @@
-makeMatrix<- function(x=matrix()){
+makeCacheMatrix<- function(x=matrix()){
   i<- NULL 
   set<- function(y){
     x<<- y
@@ -13,7 +13,7 @@ makeMatrix<- function(x=matrix()){
 
 }
 
-casheinverse <- function(x, ...){
+casheSolve <- function(x, ...){
   i<-x$getinverse()
   if(!is.null(i)){
     message('getting cashed i')
@@ -26,10 +26,9 @@ casheinverse <- function(x, ...){
   i
 }
 
-
-(mat<- makeMatrix(matrix(1:4, nrow = 2, ncol = 2)))
+(mat<- makeCasheMatrix(matrix(1:4, nrow = 2, ncol = 2)))
 mat$get()
 mat$getinverse()
 #matrix not cashed yet
-casheinverse(mat)
+casheSolve(mat)
 mat$getinverse()
